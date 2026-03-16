@@ -10,6 +10,7 @@ describe('wizard questions', () => {
     expect(QUESTION_DEFINITIONS.map((question) => question.id)).toContain('capabilities')
     expect(QUESTION_DEFINITIONS.map((question) => question.id)).toContain('personality')
     expect(QUESTION_DEFINITIONS.map((question) => question.id)).toContain('risk-boundaries')
+    expect(QUESTION_DEFINITIONS.find((question) => question.id === 'use-case')?.kind).toBe('multiselect')
   })
 
   it('uses semantic message keys and marks recommended defaults on core questions', () => {

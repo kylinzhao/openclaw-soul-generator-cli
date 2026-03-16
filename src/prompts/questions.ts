@@ -35,7 +35,7 @@ export const QUESTION_DEFINITIONS: QuestionDefinition[] = [
   },
   {
     id: 'use-case',
-    kind: 'select',
+    kind: 'multiselect',
     messageKey: 'question.use_case',
     message: 'What is this lobster mainly for?',
     choices: useCaseChoices

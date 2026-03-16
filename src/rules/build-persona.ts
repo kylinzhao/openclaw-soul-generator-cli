@@ -12,7 +12,7 @@ export function buildPersonaProfile(
   projectSignals: ProjectSignals
 ): PersonaProfile {
   const archetype = selectArchetype({
-    targetUseCase: answers.targetUseCase,
+    targetUseCases: answers.targetUseCases,
     capabilityEmphasis: answers.capabilityEmphasis
   })
 
@@ -42,7 +42,7 @@ export function buildPersonaProfile(
     },
     projectFit: buildProjectFit(projectSignals),
     flair: {
-      tags: [answers.personalityPreset, projectSignals.projectType]
+      tags: [answers.personalityPreset, projectSignals.projectType, ...answers.targetUseCases]
     },
     metadata: {
       version: 1,

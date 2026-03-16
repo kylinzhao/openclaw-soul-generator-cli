@@ -1,5 +1,5 @@
 export interface ArchetypeInput {
-  targetUseCase: string
+  targetUseCases: string[]
   capabilityEmphasis: string[]
 }
 
@@ -28,7 +28,7 @@ const ARCHETYPES: PersonaArchetype[] = [
 ]
 
 export function selectArchetype(input: ArchetypeInput): PersonaArchetype {
-  const emphasis = new Set([input.targetUseCase, ...input.capabilityEmphasis])
+  const emphasis = new Set([...input.targetUseCases, ...input.capabilityEmphasis])
 
   if (emphasis.has('engineering') || emphasis.has('debugging')) {
     return ARCHETYPES[0]

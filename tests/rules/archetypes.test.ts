@@ -6,7 +6,7 @@ import { selectArchetype } from '../../src/rules/archetypes'
 describe('persona archetypes and capability bundles', () => {
   it('selects an engineering archetype for engineering-heavy requests', () => {
     const archetype = selectArchetype({
-      targetUseCase: 'engineering',
+      targetUseCases: ['engineering', 'debugging'],
       capabilityEmphasis: ['engineering', 'debugging']
     })
 
@@ -15,7 +15,7 @@ describe('persona archetypes and capability bundles', () => {
 
   it('selects a research archetype for research-heavy requests', () => {
     const archetype = selectArchetype({
-      targetUseCase: 'research',
+      targetUseCases: ['research'],
       capabilityEmphasis: ['research']
     })
 

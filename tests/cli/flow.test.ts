@@ -20,7 +20,7 @@ describe('runPromptFlow', () => {
       new StubPromptAdapter({
         language: 'zh',
         'creation-mode': 'scratch',
-        'use-case': 'engineering',
+        'use-case': ['engineering', 'debugging'],
         capabilities: ['engineering'],
         personality: 'balanced',
         communication: 'direct',
@@ -31,7 +31,7 @@ describe('runPromptFlow', () => {
 
     expect(answers.selectedLocale).toBe('zh')
     expect(answers.creationMode).toBe('scratch')
-    expect(answers.targetUseCase).toBe('engineering')
+    expect(answers.targetUseCases).toEqual(['engineering', 'debugging'])
     expect(answers.capabilityEmphasis).toEqual(['engineering'])
     expect(answers.communicationStyle).toBe('direct')
     expect(answers.workingStyle).toBe('planning-first')

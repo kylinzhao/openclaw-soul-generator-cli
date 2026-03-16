@@ -8,7 +8,7 @@ export interface PromptAdapter {
 export async function runPromptFlow(adapter: PromptAdapter): Promise<PersonaAnswers> {
   const selectedLocale = await adapter.select('language')
   const creationMode = await adapter.select('creation-mode')
-  const targetUseCase = await adapter.select('use-case')
+  const targetUseCases = await adapter.multiselect('use-case')
   const capabilityEmphasis = await adapter.multiselect('capabilities')
   const personalityPreset = await adapter.select('personality')
   const communicationStyle = await adapter.select('communication')
@@ -18,7 +18,7 @@ export async function runPromptFlow(adapter: PromptAdapter): Promise<PersonaAnsw
   return personaAnswersSchema.parse({
     selectedLocale,
     creationMode,
-    targetUseCase,
+    targetUseCases,
     capabilityEmphasis,
     personalityPreset,
     communicationStyle,

@@ -8,7 +8,7 @@ describe('buildPersonaProfile', () => {
       {
         selectedLocale: 'zh',
         creationMode: 'project-recommended',
-        targetUseCase: 'engineering',
+        targetUseCases: ['engineering', 'debugging'],
         capabilityEmphasis: ['engineering'],
         personalityPreset: 'balanced',
         communicationStyle: 'direct',
@@ -25,6 +25,8 @@ describe('buildPersonaProfile', () => {
 
     expect(profile.projectFit.primaryStack).toBe('typescript')
     expect(profile.capabilities.engineeringExecution).toBeGreaterThanOrEqual(85)
+    expect(profile.flair.tags).toContain('engineering')
+    expect(profile.flair.tags).toContain('debugging')
     expect(profile.metadata.locale).toBe('zh')
   })
 
@@ -33,7 +35,7 @@ describe('buildPersonaProfile', () => {
       {
         selectedLocale: 'en',
         creationMode: 'scratch',
-        targetUseCase: 'general',
+        targetUseCases: ['general'],
         capabilityEmphasis: ['engineering'],
         personalityPreset: 'balanced',
         communicationStyle: 'mentor',

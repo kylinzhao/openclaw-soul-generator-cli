@@ -12,7 +12,7 @@ export const creationModeSchema = z.enum([
 export const personaAnswersSchema = z.object({
   selectedLocale: z.enum(SUPPORTED_LOCALES as ['en', 'zh', 'es', 'fr', 'ja']).default('en'),
   creationMode: creationModeSchema.default('scratch'),
-  targetUseCase: z.string().default('general'),
+  targetUseCases: z.array(z.string()).default([]),
   capabilityEmphasis: z.array(z.string()).default([]),
   personalityPreset: z.string().default('balanced'),
   communicationStyle: z.string().default('direct'),

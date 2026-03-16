@@ -36,7 +36,7 @@ describe('runCli', () => {
         new StubPromptAdapter({
           language: 'zh',
           'creation-mode': 'scratch',
-          'use-case': 'engineering',
+          'use-case': ['engineering', 'debugging'],
           capabilities: ['engineering'],
           personality: 'balanced',
           communication: 'direct',
