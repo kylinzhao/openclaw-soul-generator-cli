@@ -20,7 +20,7 @@ describe('persona profile schema', () => {
       guardrails: { antiPatterns: ['skip verification'] },
       projectFit: { primaryStack: 'typescript' },
       flair: { tags: ['precise'] },
-      metadata: { version: 1 }
+      metadata: { version: 1, locale: 'en' }
     })
 
     expect(parsed.identity.codename).toBe('Harbor Claw')
