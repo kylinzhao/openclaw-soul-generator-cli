@@ -1,0 +1,25 @@
+import { describe, expect, it } from 'vitest'
+import { spawnSync } from 'node:child_process'
+import path from 'node:path'
+
+import { runCli } from '../../src/cli'
+
+describe('CLI smoke test', () => {
+  it('returns success for help mode', async () => {
+    const result = await runCli(['--help'])
+
+    expect(result.exitCode).toBe(0)
+    expect(result.output).toContain('OpenClaw Persona Pack Generator')
+  })
+
+  it('prints help when executed as a script', () => {
+    const scriptPath = path.resolve('src/cli.ts')
+    const result = spawnSync('node', ['--import', 'tsx', scriptPath, '--help'], {
+      encoding: 'utf8',
+      cwd: process.cwd()
+    })
+
+    expect(result.status).toBe(0)
+    expect(result.stdout).toContain('OpenClaw Persona Pack Generator')
+  })
+})
