@@ -10,6 +10,22 @@ export const esCliMessages: CliMessages = {
   mergeKeep: 'Conservar el archivo actual',
   successNoteTitle: 'OpenClaw Persona Pack Generator',
   successNoteBody: (cwd) => `Persona pack generado en ${cwd}`,
+  finishCelebrate: 'La langosta ya esta lista. Hora de presumir esas pinzas.',
+  finishOutputPathLabel: 'Directorio de salida:',
+  finishFilesLabel: 'Archivos generados:',
+  finishActionPrompt: 'Que deberia hacer esta langosta ahora?',
+  finishActionKeep: 'Conservar solo los archivos en la salida',
+  finishActionApply: 'Aplicar al workspace actual de OpenClaw',
+  finishActionRestore: 'Restaurar la copia de seguridad mas reciente',
+  workspacePathLabel: 'Ruta del workspace:',
+  workspaceFilesLabel: 'Archivos gestionados:',
+  applyConfirmPrompt: (workspacePath) => `Listo para reemplazar los archivos actuales de OpenClaw en ${workspacePath}. Continuar?`,
+  restoreConfirmPrompt: (workspacePath) => `Restaurar la copia de seguridad mas reciente para ${workspacePath}?`,
+  applySuccessBody: (workspacePath, backupPath) =>
+    `Se aplico el persona pack en ${workspacePath}. La copia de seguridad quedo en ${backupPath}`,
+  restoreSuccessBody: (workspacePath, backupPath) =>
+    `Se restauro la copia de seguridad mas reciente en ${workspacePath} desde ${backupPath}`,
+  restoreMissingBody: (workspacePath) => `No se encontro ninguna copia de seguridad para ${workspacePath}`,
   questions: {
     'question.language': 'Primero, elige el idioma del CLI 🌍',
     'question.creation_mode': 'Como quieres empezar a moldear esta langosta?',

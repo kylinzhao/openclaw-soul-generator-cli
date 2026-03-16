@@ -10,6 +10,20 @@ export interface CliMessages {
   mergeKeep: string
   successNoteTitle: string
   successNoteBody: (cwd: string) => string
+  finishCelebrate: string
+  finishOutputPathLabel: string
+  finishFilesLabel: string
+  finishActionPrompt: string
+  finishActionKeep: string
+  finishActionApply: string
+  finishActionRestore: string
+  workspacePathLabel: string
+  workspaceFilesLabel: string
+  applyConfirmPrompt: (workspacePath: string) => string
+  restoreConfirmPrompt: (workspacePath: string) => string
+  applySuccessBody: (workspacePath: string, backupPath: string) => string
+  restoreSuccessBody: (workspacePath: string, backupPath: string) => string
+  restoreMissingBody: (workspacePath: string) => string
   questions: Record<string, string>
   choices: Record<string, string>
   localeNames: Record<LocaleCode, string>

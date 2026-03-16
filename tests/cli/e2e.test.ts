@@ -43,7 +43,8 @@ describe('runCli', () => {
           'working-style': 'planning-first',
           'risk-boundaries': ['flag-risk', 'never-skip-verification']
         }),
-      chooseMergeStrategy: async () => 'overwrite'
+      chooseMergeStrategy: async () => 'overwrite',
+      chooseFinishAction: async () => 'keep-output'
     }
 
     const result = await runCli(['--cwd', cwd], deps)

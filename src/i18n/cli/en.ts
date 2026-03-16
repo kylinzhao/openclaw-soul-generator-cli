@@ -10,6 +10,22 @@ export const enCliMessages: CliMessages = {
   mergeKeep: 'Keep existing',
   successNoteTitle: 'OpenClaw Persona Pack Generator',
   successNoteBody: (cwd) => `Generated persona pack in ${cwd}`,
+  finishCelebrate: 'Fresh claws, fresh soul. Your persona pack is ready.',
+  finishOutputPathLabel: 'Output directory:',
+  finishFilesLabel: 'Generated files:',
+  finishActionPrompt: 'What should this lobster do next?',
+  finishActionKeep: 'Keep files in the output directory',
+  finishActionApply: 'Apply to the current OpenClaw workspace',
+  finishActionRestore: 'Restore the latest workspace backup',
+  workspacePathLabel: 'Workspace path:',
+  workspaceFilesLabel: 'Managed files:',
+  applyConfirmPrompt: (workspacePath) => `Ready to swap the current OpenClaw files in ${workspacePath}?`,
+  restoreConfirmPrompt: (workspacePath) => `Restore the latest backup for ${workspacePath}?`,
+  applySuccessBody: (workspacePath, backupPath) =>
+    `Applied the persona pack to ${workspacePath}. Backup saved at ${backupPath}`,
+  restoreSuccessBody: (workspacePath, backupPath) =>
+    `Restored the latest backup into ${workspacePath} from ${backupPath}`,
+  restoreMissingBody: (workspacePath) => `No backup was found for ${workspacePath}`,
   questions: {
     'question.language': 'Which language should we use for this lobster chat? 🌍',
     'question.creation_mode': 'How should we start shaping this lobster?',

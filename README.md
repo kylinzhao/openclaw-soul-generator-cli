@@ -55,10 +55,14 @@ node dist/cli.js --help
 ## Behavior
 
 - asks guided multiple-choice questions with richer 5-8 option groups
+- lets the primary `use case` step select multiple responsibilities
 - lightly inspects the target repository when relevant
 - builds a local persona profile with no model calls
 - detects existing persona files and asks how to handle them
 - localizes CLI prompts and generated pack files in the selected language
+- ends with a celebratory summary that shows exactly where the generated files live
+- can apply `SOUL.md`, `AGENTS.md`, and `TOOLS.md` into the detected OpenClaw workspace after confirmation
+- creates a timestamped backup before every workspace apply and can restore the latest backup
 
 ## Development
 

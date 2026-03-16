@@ -10,6 +10,22 @@ export const jaCliMessages: CliMessages = {
   mergeKeep: '既存ファイルを保持',
   successNoteTitle: 'OpenClaw Persona Pack Generator',
   successNoteBody: (cwd) => `${cwd} に persona pack を生成しました`,
+  finishCelebrate: 'ロブスターの魂が仕上がりました。ハサミも準備万端です。',
+  finishOutputPathLabel: '出力ディレクトリ:',
+  finishFilesLabel: '生成されたファイル:',
+  finishActionPrompt: 'このロブスター、次はどう動きますか?',
+  finishActionKeep: '出力先にそのまま保存する',
+  finishActionApply: '現在の OpenClaw workspace に適用する',
+  finishActionRestore: '最新の workspace バックアップを復元する',
+  workspacePathLabel: 'Workspace パス:',
+  workspaceFilesLabel: '管理対象ファイル:',
+  applyConfirmPrompt: (workspacePath) => `${workspacePath} の現在の OpenClaw ファイルを置き換えます。続けますか?`,
+  restoreConfirmPrompt: (workspacePath) => `${workspacePath} の最新バックアップを復元しますか?`,
+  applySuccessBody: (workspacePath, backupPath) =>
+    `${workspacePath} に persona pack を適用しました。バックアップは ${backupPath} に保存しました`,
+  restoreSuccessBody: (workspacePath, backupPath) =>
+    `${backupPath} から ${workspacePath} へ最新バックアップを復元しました`,
+  restoreMissingBody: (workspacePath) => `${workspacePath} には復元できるバックアップがありません`,
   questions: {
     'question.language': 'まず CLI の言語を選びましょう 🌍',
     'question.creation_mode': 'このロブスターをどう作り始めますか？',

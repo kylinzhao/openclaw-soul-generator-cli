@@ -10,6 +10,22 @@ export const zhCliMessages: CliMessages = {
   mergeKeep: '保留原文件',
   successNoteTitle: 'OpenClaw Persona Pack Generator',
   successNoteBody: (cwd) => `已经在 ${cwd} 生成 persona pack`,
+  finishCelebrate: '龙虾灵魂出锅啦，钳子已经磨亮了。',
+  finishOutputPathLabel: '输出目录：',
+  finishFilesLabel: '生成文件：',
+  finishActionPrompt: '下一步想让这只龙虾怎么行动？',
+  finishActionKeep: '只保留在输出目录',
+  finishActionApply: '应用到当前 OpenClaw workspace',
+  finishActionRestore: '恢复最近一次 workspace 备份',
+  workspacePathLabel: 'Workspace 路径：',
+  workspaceFilesLabel: '将管理的文件：',
+  applyConfirmPrompt: (workspacePath) => `准备把当前 OpenClaw 文件替换到 ${workspacePath}，要继续吗？`,
+  restoreConfirmPrompt: (workspacePath) => `要把 ${workspacePath} 恢复到最近一次备份吗？`,
+  applySuccessBody: (workspacePath, backupPath) =>
+    `已经把 persona pack 应用到 ${workspacePath}，备份保存在 ${backupPath}`,
+  restoreSuccessBody: (workspacePath, backupPath) =>
+    `已经从 ${backupPath} 恢复最新备份到 ${workspacePath}`,
+  restoreMissingBody: (workspacePath) => `${workspacePath} 还没有可恢复的备份`,
   questions: {
     'question.language': '先选一个这次对话要使用的语言吧 🌍',
     'question.creation_mode': '这只龙虾要从哪种方式开始塑形？',

@@ -10,6 +10,23 @@ export const frCliMessages: CliMessages = {
   mergeKeep: 'Conserver le fichier actuel',
   successNoteTitle: 'OpenClaw Persona Pack Generator',
   successNoteBody: (cwd) => `Persona pack genere dans ${cwd}`,
+  finishCelebrate: 'Le homard est pret. Les pinces sont bien affutees.',
+  finishOutputPathLabel: 'Repertoire de sortie :',
+  finishFilesLabel: 'Fichiers generes :',
+  finishActionPrompt: 'Que devrait faire ce homard ensuite ?',
+  finishActionKeep: 'Garder les fichiers dans le dossier de sortie',
+  finishActionApply: 'Appliquer au workspace OpenClaw courant',
+  finishActionRestore: 'Restaurer la sauvegarde la plus recente',
+  workspacePathLabel: 'Chemin du workspace :',
+  workspaceFilesLabel: 'Fichiers geres :',
+  applyConfirmPrompt: (workspacePath) =>
+    `Pret a remplacer les fichiers OpenClaw actuels dans ${workspacePath}. Continuer ?`,
+  restoreConfirmPrompt: (workspacePath) => `Restaurer la sauvegarde la plus recente pour ${workspacePath} ?`,
+  applySuccessBody: (workspacePath, backupPath) =>
+    `Le persona pack a ete applique a ${workspacePath}. Sauvegarde creee dans ${backupPath}`,
+  restoreSuccessBody: (workspacePath, backupPath) =>
+    `La sauvegarde la plus recente a ete restauree dans ${workspacePath} depuis ${backupPath}`,
+  restoreMissingBody: (workspacePath) => `Aucune sauvegarde disponible pour ${workspacePath}`,
   questions: {
     'question.language': 'Choisissons dabord la langue du CLI 🌍',
     'question.creation_mode': 'Comment voulez-vous faconner ce homard ?',
