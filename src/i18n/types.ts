@@ -10,4 +10,31 @@ export interface CliMessages {
   mergeKeep: string
   successNoteTitle: string
   successNoteBody: (cwd: string) => string
+  questions: Record<string, string>
+  choices: Record<string, string>
+  localeNames: Record<LocaleCode, string>
+}
+
+export interface OutputMessages {
+  soulTitle: string
+  agentsTitle: string
+  toolsTitle: string
+  coreIdentity: string
+  personalityProfile: string
+  primaryCapabilities: string
+  planningAndExecution: string
+  decisionRules: string
+  antiPatterns: string
+  verificationRules: string
+  projectAffinity: string
+  identitySentence: (codename: string, role: string) => string
+  personalitySentence: (restraint: number, warmth: number, initiative: number) => string
+  planningSentence: (planningBias: string) => string
+  communicationSentence: (style: string) => string
+  verificationSentence: string
+  projectAffinitySentence: (primaryStack: string) => string
+  capabilityLabels: Record<string, string>
+  communicationLabels: Record<string, string>
+  planningLabels: Record<string, string>
+  antiPatternLabels: Record<string, string>
 }

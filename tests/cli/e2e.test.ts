@@ -50,6 +50,6 @@ describe('runCli', () => {
 
     expect(result.exitCode).toBe(0)
     expect(result.output).toContain('persona pack')
-    expect(await fs.readFile(path.join(cwd, 'SOUL.md'), 'utf8')).toContain('Core Identity')
+    expect(await fs.readFile(path.join(cwd, 'SOUL.md'), 'utf8')).toContain('核心身份')
   })
 })

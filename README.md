@@ -9,6 +9,23 @@ Offline interactive CLI for generating OpenClaw persona packs.
 - `TOOLS.md`
 - `persona.json`
 
+## Languages
+
+The CLI currently supports:
+
+- English (`en`)
+- Chinese (`zh`)
+- Spanish (`es`)
+- French (`fr`)
+- Japanese (`ja`)
+
+The wizard asks for the language first and uses it for both:
+
+- the interactive CLI experience
+- the generated markdown files
+
+The CLI can stay light and playful, with a little humor and a few emojis. The generated persona pack stays professional and execution-focused.
+
 ## Usage
 
 Install dependencies:
@@ -37,10 +54,11 @@ node dist/cli.js --help
 
 ## Behavior
 
-- asks guided multiple-choice questions
+- asks guided multiple-choice questions with richer 5-8 option groups
 - lightly inspects the target repository when relevant
 - builds a local persona profile with no model calls
 - detects existing persona files and asks how to handle them
+- localizes CLI prompts and generated pack files in the selected language
 
 ## Development
 

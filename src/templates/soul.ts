@@ -1,21 +1,26 @@
+import type { OutputMessages } from '../i18n/types'
 import type { PersonaProfile } from '../types/persona'
 import { wrapManagedBlock } from './managed-blocks'
 import { renderSection } from './sections'
 
-export function renderSoul(profile: PersonaProfile): string {
+export function renderSoul(profile: PersonaProfile, messages: OutputMessages): string {
   return wrapManagedBlock(
     'SOUL',
     [
-      '# SOUL',
-      renderSection('Core Identity', `${profile.identity.codename} is a ${profile.identity.role}.`),
+      `# ${messages.soulTitle}`,
+      renderSection(messages.coreIdentity, messages.identitySentence(profile.identity.codename, profile.identity.role)),
       renderSection(
-        'Personality Profile',
-        `Restraint ${profile.personality.restraint}, warmth ${profile.personality.warmth}, initiative ${profile.personality.initiative}.`
+        messages.personalityProfile,
+        messages.personalitySentence(
+          profile.personality.restraint,
+          profile.personality.warmth,
+          profile.personality.initiative
+        )
       ),
       renderSection(
-        'Primary Capabilities',
+        messages.primaryCapabilities,
         Object.entries(profile.capabilities)
-          .map(([key, value]) => `- ${key}: ${value}`)
+          .map(([key, value]) => `- ${messages.capabilityLabels[key] ?? key}: ${value}`)
           .join('\n')
       )
     ].join('\n\n')
