@@ -27,22 +27,26 @@ export function buildPersonaProfile(
     personality,
     capabilities,
     workingStyle: {
-      planningBias: answers.capabilityEmphasis.includes('engineering')
-        ? 'planning-first'
-        : 'balanced'
+      planningBias:
+        answers.workingStyle === 'experiment-first'
+          ? 'experiment-first'
+          : answers.workingStyle === 'planning-first'
+            ? 'planning-first'
+            : 'balanced'
     },
     communication: {
-      style: archetype.defaultStyle
+      style: answers.communicationStyle || archetype.defaultStyle
     },
     guardrails: {
-      antiPatterns: ensureGuardrails([])
+      antiPatterns: ensureGuardrails(answers.riskBoundaries)
     },
     projectFit: buildProjectFit(projectSignals),
     flair: {
       tags: [answers.personalityPreset, projectSignals.projectType]
     },
     metadata: {
-      version: 1
+      version: 1,
+      locale: answers.selectedLocale
     }
   })
 }

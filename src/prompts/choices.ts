@@ -5,6 +5,14 @@ export interface ChoiceOption {
   recommended?: boolean
 }
 
+export const languageChoices: ChoiceOption[] = [
+  { value: 'en', label: 'English', labelKey: 'choice.locale.en', recommended: true },
+  { value: 'zh', label: '中文', labelKey: 'choice.locale.zh' },
+  { value: 'es', label: 'Español', labelKey: 'choice.locale.es' },
+  { value: 'fr', label: 'Français', labelKey: 'choice.locale.fr' },
+  { value: 'ja', label: '日本語', labelKey: 'choice.locale.ja' }
+]
+
 export const creationModeChoices: ChoiceOption[] = [
   {
     value: 'project-recommended',

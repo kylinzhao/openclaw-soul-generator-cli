@@ -32,7 +32,8 @@ export const personaProfileSchema = z.object({
     tags: z.array(z.string())
   }),
   metadata: z.object({
-    version: z.number().int().positive()
+    version: z.number().int().positive(),
+    locale: z.enum(['en', 'zh', 'es', 'fr', 'ja'])
   })
 })
 

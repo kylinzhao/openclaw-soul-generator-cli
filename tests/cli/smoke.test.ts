@@ -10,6 +10,7 @@ describe('CLI smoke test', () => {
 
     expect(result.exitCode).toBe(0)
     expect(result.output).toContain('OpenClaw Persona Pack Generator')
+    expect(result.output).toContain('Usage')
   })
 
   it('prints help when executed as a script', () => {

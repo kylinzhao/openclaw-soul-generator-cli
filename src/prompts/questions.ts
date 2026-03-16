@@ -2,6 +2,7 @@ import {
   capabilityChoices,
   communicationChoices,
   creationModeChoices,
+  languageChoices,
   personalityChoices,
   riskBoundaryChoices,
   useCaseChoices,
@@ -23,7 +24,7 @@ export const QUESTION_DEFINITIONS: QuestionDefinition[] = [
     kind: 'select',
     messageKey: 'question.language',
     message: 'Choose your language',
-    choices: []
+    choices: languageChoices
   },
   {
     id: 'creation-mode',

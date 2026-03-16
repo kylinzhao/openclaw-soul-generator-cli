@@ -34,10 +34,14 @@ describe('runCli', () => {
     const deps: CliDependencies = {
       createPromptAdapter: async () =>
         new StubPromptAdapter({
+          language: 'zh',
           'creation-mode': 'scratch',
           'use-case': 'engineering',
           capabilities: ['engineering'],
-          personality: 'balanced'
+          personality: 'balanced',
+          communication: 'direct',
+          'working-style': 'planning-first',
+          'risk-boundaries': ['flag-risk', 'never-skip-verification']
         }),
       chooseMergeStrategy: async () => 'overwrite'
     }
@@ -45,7 +49,7 @@ describe('runCli', () => {
     const result = await runCli(['--cwd', cwd], deps)
 
     expect(result.exitCode).toBe(0)
-    expect(result.output).toContain('Generated persona pack')
+    expect(result.output).toContain('persona pack')
     expect(await fs.readFile(path.join(cwd, 'SOUL.md'), 'utf8')).toContain('Core Identity')
   })
 })

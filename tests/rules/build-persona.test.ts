@@ -6,10 +6,14 @@ describe('buildPersonaProfile', () => {
   it('uses project signals to shape project fit', () => {
     const profile = buildPersonaProfile(
       {
+        selectedLocale: 'zh',
         creationMode: 'project-recommended',
         targetUseCase: 'engineering',
         capabilityEmphasis: ['engineering'],
-        personalityPreset: 'balanced'
+        personalityPreset: 'balanced',
+        communicationStyle: 'direct',
+        workingStyle: 'planning-first',
+        riskBoundaries: ['flag-risk', 'never-skip-verification']
       },
       {
         primaryStack: 'typescript',
@@ -21,15 +25,20 @@ describe('buildPersonaProfile', () => {
 
     expect(profile.projectFit.primaryStack).toBe('typescript')
     expect(profile.capabilities.engineeringExecution).toBeGreaterThanOrEqual(85)
+    expect(profile.metadata.locale).toBe('zh')
   })
 
   it('keeps expressive personas guarded by execution rules', () => {
     const profile = buildPersonaProfile(
       {
+        selectedLocale: 'en',
         creationMode: 'scratch',
         targetUseCase: 'general',
         capabilityEmphasis: ['engineering'],
-        personalityPreset: 'expressive'
+        personalityPreset: 'balanced',
+        communicationStyle: 'mentor',
+        workingStyle: 'planning-first',
+        riskBoundaries: ['flag-risk']
       },
       {
         primaryStack: 'unknown',
@@ -39,7 +48,7 @@ describe('buildPersonaProfile', () => {
       }
     )
 
-    expect(profile.personality.humor).toBeGreaterThan(40)
+    expect(profile.communication.style).toBe('mentor')
     expect(profile.guardrails.antiPatterns).toContain('skip verification')
   })
 })

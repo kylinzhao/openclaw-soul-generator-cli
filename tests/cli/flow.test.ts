@@ -15,18 +15,26 @@ class StubPromptAdapter implements PromptAdapter {
 }
 
 describe('runPromptFlow', () => {
-  it('collects the start-from-scratch path', async () => {
+  it('collects the locale-first start-from-scratch path', async () => {
     const answers = await runPromptFlow(
       new StubPromptAdapter({
+        language: 'zh',
         'creation-mode': 'scratch',
         'use-case': 'engineering',
         capabilities: ['engineering'],
-        personality: 'balanced'
+        personality: 'balanced',
+        communication: 'direct',
+        'working-style': 'planning-first',
+        'risk-boundaries': ['flag-risk', 'never-skip-verification']
       })
     )
 
+    expect(answers.selectedLocale).toBe('zh')
     expect(answers.creationMode).toBe('scratch')
     expect(answers.targetUseCase).toBe('engineering')
     expect(answers.capabilityEmphasis).toEqual(['engineering'])
+    expect(answers.communicationStyle).toBe('direct')
+    expect(answers.workingStyle).toBe('planning-first')
+    expect(answers.riskBoundaries).toEqual(['flag-risk', 'never-skip-verification'])
   })
 })

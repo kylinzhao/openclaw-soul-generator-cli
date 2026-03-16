@@ -3,6 +3,9 @@ import { pathToFileURL } from 'node:url'
 
 import * as prompts from '@clack/prompts'
 
+import { getCliMessages } from './i18n/cli'
+import type { LocaleCode } from './i18n'
+import { isSupportedLocale } from './i18n'
 import { detectExistingPersonaFiles } from './merge/detect-existing'
 import { mergePersonaContent, type MergeStrategy } from './merge/strategies'
 import { runPromptFlow, type PromptAdapter } from './prompts/flow'
@@ -23,6 +26,8 @@ export interface CliDependencies {
 }
 
 class ClackPromptAdapter implements PromptAdapter {
+  private locale: LocaleCode = 'en'
+
   async select(id: string): Promise<string> {
     const question = QUESTION_DEFINITIONS.find((item) => item.id === id)
 
@@ -30,16 +35,24 @@ class ClackPromptAdapter implements PromptAdapter {
       throw new Error(`Unknown question: ${id}`)
     }
 
+    const messages = getCliMessages(this.locale)
+
     const value = await prompts.select({
-      message: question.message,
+      message: messages.questions[question.messageKey] ?? question.message,
       options: question.choices.map((choice) => ({
         value: choice.value,
-        label: choice.recommended ? `${choice.label} (recommended)` : choice.label
+        label: choice.recommended
+          ? `${messages.choices[choice.labelKey] ?? choice.label} (recommended)`
+          : (messages.choices[choice.labelKey] ?? choice.label)
       }))
     })
 
     if (prompts.isCancel(value)) {
       throw new Error('Prompt cancelled')
+    }
+
+    if (id === 'language' && isSupportedLocale(value)) {
+      this.locale = value
     }
 
     return value
@@ -52,11 +65,15 @@ class ClackPromptAdapter implements PromptAdapter {
       throw new Error(`Unknown question: ${id}`)
     }
 
+    const messages = getCliMessages(this.locale)
+
     const value = await prompts.multiselect({
-      message: question.message,
+      message: messages.questions[question.messageKey] ?? question.message,
       options: question.choices.map((choice) => ({
         value: choice.value,
-        label: choice.recommended ? `${choice.label} (recommended)` : choice.label
+        label: choice.recommended
+          ? `${messages.choices[choice.labelKey] ?? choice.label} (recommended)`
+          : (messages.choices[choice.labelKey] ?? choice.label)
       })),
       initialValues: question.choices.filter((choice) => choice.recommended).map((choice) => choice.value),
       required: false
@@ -79,13 +96,25 @@ function readCwd(argv: string[]): string {
   return process.cwd()
 }
 
-async function defaultMergeStrategy(fileName: string): Promise<MergeStrategy> {
+function readLocaleArg(argv: string[]): LocaleCode {
+  const index = argv.indexOf('--locale')
+  const candidate = index >= 0 ? argv[index + 1] : undefined
+
+  if (candidate && isSupportedLocale(candidate)) {
+    return candidate
+  }
+
+  return 'en'
+}
+
+async function defaultMergeStrategy(fileName: string, locale: LocaleCode): Promise<MergeStrategy> {
+  const messages = getCliMessages(locale)
   const value = await prompts.select({
-    message: `${fileName} already exists. How should it be handled?`,
+    message: messages.mergePrompt(fileName),
     options: [
-      { value: 'smart-merge', label: 'Smart merge (recommended)' },
-      { value: 'overwrite', label: 'Overwrite' },
-      { value: 'keep', label: 'Keep existing' }
+      { value: 'smart-merge', label: messages.mergeSmart },
+      { value: 'overwrite', label: messages.mergeOverwrite },
+      { value: 'keep', label: messages.mergeKeep }
     ]
   })
 
@@ -98,9 +127,11 @@ async function defaultMergeStrategy(fileName: string): Promise<MergeStrategy> {
 
 export async function runCli(argv: string[], deps: CliDependencies = {}): Promise<CliResult> {
   if (argv.includes('--help')) {
+    const locale = readLocaleArg(argv)
+    const messages = getCliMessages(locale)
     return {
       exitCode: 0,
-      output: 'OpenClaw Persona Pack Generator\n\nUsage: openclaw-persona [--cwd <path>]'
+      output: `${messages.helpTitle}\n\n${messages.helpUsage}`
     }
   }
 
@@ -114,11 +145,13 @@ export async function runCli(argv: string[], deps: CliDependencies = {}): Promis
   const personaProfile = buildPersonaProfile(answers, projectSignals)
   const generatedPack = renderPersonaPack(personaProfile)
   const existingFiles = await detectExistingPersonaFiles(cwd)
-  const chooseMergeStrategy = deps.chooseMergeStrategy ?? defaultMergeStrategy
+  const chooseMergeStrategy = deps.chooseMergeStrategy
   const finalPack: Record<string, string> = { ...generatedPack }
 
   for (const fileName of existingFiles) {
-    const strategy = await chooseMergeStrategy(fileName)
+    const strategy = chooseMergeStrategy
+      ? await chooseMergeStrategy(fileName)
+      : await defaultMergeStrategy(fileName, answers.selectedLocale)
     const existingContent = await import('node:fs/promises').then((fs) =>
       fs.readFile(path.join(cwd, fileName), 'utf8')
     )
@@ -128,11 +161,12 @@ export async function runCli(argv: string[], deps: CliDependencies = {}): Promis
 
   await writePersonaPack(cwd, finalPack)
 
-  prompts.note(`Generated persona pack in ${cwd}`, 'OpenClaw Persona Pack Generator')
+  const messages = getCliMessages(answers.selectedLocale)
+  prompts.note(messages.successNoteBody(cwd), messages.successNoteTitle)
 
   return {
     exitCode: 0,
-    output: `Generated persona pack in ${cwd}`
+    output: messages.successNoteBody(cwd)
   }
 }
 

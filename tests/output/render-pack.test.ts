@@ -13,7 +13,7 @@ describe('renderPersonaPack', () => {
       guardrails: { antiPatterns: ['skip verification', 'bluff certainty'] },
       projectFit: { primaryStack: 'typescript' },
       flair: { tags: ['balanced', 'cli'] },
-      metadata: { version: 1 }
+      metadata: { version: 1, locale: 'en' }
     })
 
     expect(pack['SOUL.md']).toContain('Core Identity')
