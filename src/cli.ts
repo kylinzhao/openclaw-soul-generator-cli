@@ -119,11 +119,14 @@ function renderWelcomeSplash(locale: LocaleCode): string {
 
   return [
     '        🦞',
-    '    /|_   _|\\\\',
-    '   (  o\\_/o  )',
-    '    \\  open  /',
-    '     \\ soul /',
-    '      `-----\'',
+    '      __   __',
+    '     /  |_|  \\\\',
+    '    /  (o o)  \\\\',
+    '   (_____^____)',
+    '    /|  _  |\\\\',
+    '   /_|_/ \\_|_\\\\',
+    '     /_/ \\_\\\\',
+    '     ^^   ^^',
     '',
     messages.helpTitle,
     messages.welcomeTagline

@@ -58,7 +58,8 @@ describe('CLI welcome personality', () => {
     expect(showIntro.mock.calls[0]?.[0]).toContain('OpenClaw Oh My Soul')
     expect(showIntro.mock.calls[0]?.[0]).toContain('Sharp claws, gentle vibes')
     expect(showIntro.mock.calls[0]?.[0]).toContain('🦞')
-    expect(showIntro.mock.calls[0]?.[0]).toContain('\/|_')
+    expect(showIntro.mock.calls[0]?.[0]).toContain('/  |_|  \\\\')
+    expect(showIntro.mock.calls[0]?.[0]).toContain('(_____^____)')
     expect(showNote).toHaveBeenCalled()
   })
 
