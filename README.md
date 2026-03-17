@@ -1,17 +1,65 @@
 # OpenClaw Oh My Soul
 
-Offline interactive CLI for generating OpenClaw persona packs.
+[![npm version](https://img.shields.io/npm/v/openclaw-oh-my-soul.svg)](https://www.npmjs.com/package/openclaw-oh-my-soul)
+[![GitHub](https://img.shields.io/badge/GitHub-openclaw--soul--generator--cli-black?logo=github)](https://github.com/kylinzhao/openclaw-soul-generator-cli)
 
-## What It Generates
+[English](./README.md) | [简体中文](./README.zh-CN.md) | [Español](./README.es.md) | [Français](./README.fr.md) | [日本語](./README.ja.md)
+
+An offline CLI that helps you hatch an OpenClaw persona pack with suspiciously cheerful lobster energy.
+
+## Why This Exists
+
+Sometimes you want a sharp OpenClaw persona without spending your whole afternoon whispering into markdown files like a confused seaside wizard.
+
+`openclaw-oh-my-soul` asks a tidy set of questions, reads a bit of your repo, then serves up:
 
 - `SOUL.md`
 - `AGENTS.md`
 - `TOOLS.md`
 - `persona.json`
 
-## Languages
+The CLI gets to be playful. The generated pack stays useful, structured, and ready to work.
 
-The CLI currently supports:
+## Quick Start
+
+Run it right where you want the persona pack to land:
+
+```bash
+npx openclaw-oh-my-soul
+```
+
+Point it at another workspace:
+
+```bash
+npx openclaw-oh-my-soul --cwd /path/to/workspace
+```
+
+Start in a specific CLI language:
+
+```bash
+npx openclaw-oh-my-soul --locale zh
+```
+
+Peek at the help screen and meet the lobster:
+
+```bash
+npx openclaw-oh-my-soul --help
+```
+
+## What The Lobster Actually Does
+
+- asks guided multiple-choice questions instead of demanding a wall of prose
+- lets the main use case cover multiple responsibilities
+- lightly inspects the target repository for project signals
+- builds a local persona profile with no model calls
+- detects existing persona files and asks how to handle the old shell
+- localizes both the CLI prompts and generated output files
+- can apply `SOUL.md`, `AGENTS.md`, and `TOOLS.md` into a detected OpenClaw workspace
+- creates a timestamped backup before every workspace apply, then restores it if needed
+
+## Supported Languages
+
+The CLI supports:
 
 - English (`en`)
 - Chinese (`zh`)
@@ -19,50 +67,18 @@ The CLI currently supports:
 - French (`fr`)
 - Japanese (`ja`)
 
-The wizard asks for the language first and uses it for both:
+The first question is the CLI language, and that choice also controls the generated markdown pack.
 
-- the interactive CLI experience
-- the generated markdown files
+## Why It Is A Little Fun
 
-The CLI can stay light and playful, with a little humor and a few emojis. The generated persona pack stays professional and execution-focused.
+Because tooling does not need to sound like it was raised in a beige spreadsheet.
 
-## Usage
+This project aims for:
 
-Run the interactive wizard in the current directory:
-
-```bash
-npx openclaw-oh-my-soul
-```
-
-Run it against a target workspace:
-
-```bash
-npx openclaw-oh-my-soul --cwd /path/to/workspace
-```
-
-Start with a specific CLI language:
-
-```bash
-npx openclaw-oh-my-soul --locale zh
-```
-
-Show help:
-
-```bash
-npx openclaw-oh-my-soul --help
-```
-
-## Behavior
-
-- asks guided multiple-choice questions with richer 5-8 option groups
-- lets the primary `use case` step select multiple responsibilities
-- lightly inspects the target repository when relevant
-- builds a local persona profile with no model calls
-- detects existing persona files and asks how to handle them
-- localizes CLI prompts and generated pack files in the selected language
-- ends with a celebratory summary that shows exactly where the generated files live
-- can apply `SOUL.md`, `AGENTS.md`, and `TOOLS.md` into the detected OpenClaw workspace after confirmation
-- creates a timestamped backup before every workspace apply and can restore the latest backup
+- clear commands
+- fast scanning
+- practical output
+- just enough lobster nonsense to keep the terminal from feeling haunted
 
 ## Development
 
@@ -72,20 +88,15 @@ Install dependencies:
 npm install
 ```
 
-Run tests:
-
-```bash
-npm test
-```
-
-Run typecheck:
+Run the checks:
 
 ```bash
 npm run lint
-```
-
-Build:
-
-```bash
+npm test
 npm run build
 ```
+
+## Repo
+
+- GitHub: [kylinzhao/openclaw-soul-generator-cli](https://github.com/kylinzhao/openclaw-soul-generator-cli)
+- npm: [openclaw-oh-my-soul](https://www.npmjs.com/package/openclaw-oh-my-soul)
