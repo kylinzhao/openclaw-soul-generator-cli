@@ -1,10 +1,13 @@
 import type { CliMessages } from '../types'
 
 export const enCliMessages: CliMessages = {
-  languagePrompt: 'Choose your CLI language 🌍',
+  languagePrompt: 'Choose your CLI language\nPick the tongue for this little lobster chat. 🌍',
   helpTitle: 'OpenClaw Oh My Soul',
   helpUsage: 'Usage: openclaw-oh-my-soul [--cwd <path>] [--locale <code>]',
-  mergePrompt: (fileName) => `${fileName} already exists. What should this lobster do? 🦞`,
+  helpHint: 'Run it with no flags to start the lobster parade.',
+  welcomeTagline: 'Sharp claws, gentle vibes.',
+  mergePrompt: (fileName) =>
+    `${fileName} already exists.\nHow should this lobster handle the old shell? 🦞`,
   mergeSmart: 'Smart merge (recommended)',
   mergeOverwrite: 'Overwrite',
   mergeKeep: 'Keep existing',
@@ -13,28 +16,30 @@ export const enCliMessages: CliMessages = {
   finishCelebrate: 'Fresh claws, fresh soul. Your persona pack is ready.',
   finishOutputPathLabel: 'Output directory:',
   finishFilesLabel: 'Generated files:',
-  finishActionPrompt: 'What should this lobster do next?',
+  finishActionPrompt: 'Choose what happens next.\nThis lobster is ready for the next tiny adventure. 🦞',
   finishActionKeep: 'Keep files in the output directory',
   finishActionApply: 'Apply to the current OpenClaw workspace',
   finishActionRestore: 'Restore the latest workspace backup',
   workspacePathLabel: 'Workspace path:',
   workspaceFilesLabel: 'Managed files:',
-  applyConfirmPrompt: (workspacePath) => `Ready to swap the current OpenClaw files in ${workspacePath}?`,
-  restoreConfirmPrompt: (workspacePath) => `Restore the latest backup for ${workspacePath}?`,
+  applyConfirmPrompt: (workspacePath) =>
+    `Apply the persona pack to ${workspacePath}?\nWe will swap the shell carefully, claw by claw. 🦞`,
+  restoreConfirmPrompt: (workspacePath) =>
+    `Restore the latest backup for ${workspacePath}?\nTime to tuck this lobster back into its last safe shell. 🦞`,
   applySuccessBody: (workspacePath, backupPath) =>
     `Applied the persona pack to ${workspacePath}. Backup saved at ${backupPath}`,
   restoreSuccessBody: (workspacePath, backupPath) =>
     `Restored the latest backup into ${workspacePath} from ${backupPath}`,
   restoreMissingBody: (workspacePath) => `No backup was found for ${workspacePath}`,
   questions: {
-    'question.language': 'Which language should we use for this lobster chat? 🌍',
-    'question.creation_mode': 'How should we start shaping this lobster?',
-    'question.use_case': 'What should this lobster mainly help with?',
-    'question.capabilities': 'Which strengths should be the sharpest claws?',
-    'question.personality': 'Which personality spectrum feels right?',
-    'question.communication': 'How should it talk to the user?',
-    'question.working_style': 'How should it work by default?',
-    'question.risk_boundaries': 'Which boundaries matter most?'
+    'question.language': 'Choose your CLI language\nPick the tongue for this little lobster chat. 🌍',
+    'question.creation_mode': 'Choose how to start shaping this lobster\nWe can hatch from scratch or borrow a shell. 🦞',
+    'question.use_case': 'Choose what this lobster should mainly help with\nPoint the claws toward the work that matters most. 🦞',
+    'question.capabilities': 'Choose which strengths should be the sharpest claws\nA lobster can wave many claws, but a few should sparkle. ✨',
+    'question.personality': 'Choose the personality spectrum\nLet us tune the pinch, pep, and poise. 🦞',
+    'question.communication': 'Choose how it should talk to the user\nClear first, charming second, never gibberish. 🫧',
+    'question.working_style': 'Choose how it should work by default\nThis sets the lobster rhythm when nobody says otherwise. 🪸',
+    'question.risk_boundaries': 'Choose which boundaries matter most\nEven a playful lobster needs good rails. 🛟'
   },
   choices: {
     'choice.locale.en': 'English',

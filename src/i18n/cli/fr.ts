@@ -1,10 +1,12 @@
 import type { CliMessages } from '../types'
 
 export const frCliMessages: CliMessages = {
-  languagePrompt: 'Choisissez la langue du CLI 🌍',
+  languagePrompt: 'Choisissez la langue du CLI\nMettons dabord ce homard a laise dans la bonne langue. 🌍',
   helpTitle: 'OpenClaw Oh My Soul',
   helpUsage: 'Utilisation : openclaw-oh-my-soul [--cwd <chemin>] [--locale <code>]',
-  mergePrompt: (fileName) => `${fileName} existe deja. Que doit faire ce homard ? 🦞`,
+  helpHint: 'Lancez-le sans option pour demarrer la petite parade du homard.',
+  welcomeTagline: 'Pinces vives, humeur douce.',
+  mergePrompt: (fileName) => `${fileName} existe deja.\nComment ce homard doit-il gerer son ancienne carapace ? 🦞`,
   mergeSmart: 'Fusion intelligente (recommandee)',
   mergeOverwrite: 'Remplacer',
   mergeKeep: 'Conserver le fichier actuel',
@@ -13,29 +15,30 @@ export const frCliMessages: CliMessages = {
   finishCelebrate: 'Le homard est pret. Les pinces sont bien affutees.',
   finishOutputPathLabel: 'Repertoire de sortie :',
   finishFilesLabel: 'Fichiers generes :',
-  finishActionPrompt: 'Que devrait faire ce homard ensuite ?',
+  finishActionPrompt: 'Choisissez la suite\nCe homard trépigne deja des pinces pour continuer. 🦞',
   finishActionKeep: 'Garder les fichiers dans le dossier de sortie',
   finishActionApply: 'Appliquer au workspace OpenClaw courant',
   finishActionRestore: 'Restaurer la sauvegarde la plus recente',
   workspacePathLabel: 'Chemin du workspace :',
   workspaceFilesLabel: 'Fichiers geres :',
   applyConfirmPrompt: (workspacePath) =>
-    `Pret a remplacer les fichiers OpenClaw actuels dans ${workspacePath}. Continuer ?`,
-  restoreConfirmPrompt: (workspacePath) => `Restaurer la sauvegarde la plus recente pour ${workspacePath} ?`,
+    `Appliquer le persona pack dans ${workspacePath} ?\nOn changera la carapace avec soin, pince par pince. 🦞`,
+  restoreConfirmPrompt: (workspacePath) =>
+    `Restaurer la sauvegarde la plus recente pour ${workspacePath} ?\nIl est temps de remettre ce homard dans sa derniere carapace tranquille. 🦞`,
   applySuccessBody: (workspacePath, backupPath) =>
     `Le persona pack a ete applique a ${workspacePath}. Sauvegarde creee dans ${backupPath}`,
   restoreSuccessBody: (workspacePath, backupPath) =>
     `La sauvegarde la plus recente a ete restauree dans ${workspacePath} depuis ${backupPath}`,
   restoreMissingBody: (workspacePath) => `Aucune sauvegarde disponible pour ${workspacePath}`,
   questions: {
-    'question.language': 'Choisissons dabord la langue du CLI 🌍',
-    'question.creation_mode': 'Comment voulez-vous faconner ce homard ?',
-    'question.use_case': 'Pour quoi doit-il surtout aider ?',
-    'question.capabilities': 'Quelles pinces doivent etre les plus fortes ?',
-    'question.personality': 'Quel spectre de personnalite convient le mieux ?',
-    'question.communication': 'Comment doit-il communiquer avec lutilisateur ?',
-    'question.working_style': 'Comment doit-il travailler par defaut ?',
-    'question.risk_boundaries': 'Quelles limites comptent le plus ?'
+    'question.language': 'Choisissez la langue du CLI\nMettons dabord ce petit homard a parler correctement. 🌍',
+    'question.creation_mode': 'Choisissez comment faconner ce homard\nOn peut partir de zero ou lui preter une carapace. 🦞',
+    'question.use_case': 'Choisissez sa mission principale\nOrientons les pinces vers le travail qui compte le plus. 🦞',
+    'question.capabilities': 'Choisissez les pinces a rendre les plus fortes\nUn homard peut tout tenter, mais quelques pinces doivent briller. ✨',
+    'question.personality': 'Choisissez le spectre de personnalite\nReglons lelan, la chaleur et la tenue. 🦞',
+    'question.communication': 'Choisissez sa facon de parler a lutilisateur\nDabord clair, ensuite charmant, jamais brouillon. 🫧',
+    'question.working_style': 'Choisissez sa facon davancer par defaut\nCe sera le rythme du homard quand personne ne donne la cadence. 🪸',
+    'question.risk_boundaries': 'Choisissez les limites les plus importantes\nMeme un homard sympa a besoin de bons garde-fous. 🛟'
   },
   choices: {
     'choice.locale.en': 'Anglais',

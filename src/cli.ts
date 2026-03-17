@@ -38,6 +38,7 @@ export interface CliResult {
 
 export interface CliDependencies {
   createPromptAdapter?: () => Promise<PromptAdapter>
+  showIntro?: (message: string) => void
   chooseMergeStrategy?: (fileName: string) => Promise<MergeStrategy>
   showNote?: (message: string, title: string) => void
   chooseFinishAction?: (locale: LocaleCode) => Promise<FinishAction['value']>
@@ -113,6 +114,22 @@ class ClackPromptAdapter implements PromptAdapter {
   }
 }
 
+function renderWelcomeSplash(locale: LocaleCode): string {
+  const messages = getCliMessages(locale)
+
+  return [
+    '        🦞',
+    '    /|_   _|\\\\',
+    '   (  o\\_/o  )',
+    '    \\  open  /',
+    '     \\ soul /',
+    '      `-----\'',
+    '',
+    messages.helpTitle,
+    messages.welcomeTagline
+  ].join('\n')
+}
+
 function readCwd(argv: string[]): string {
   const index = argv.indexOf('--cwd')
   if (index >= 0 && argv[index + 1]) {
@@ -153,6 +170,10 @@ async function defaultMergeStrategy(fileName: string, locale: LocaleCode): Promi
 
 function defaultShowNote(message: string, title: string): void {
   prompts.note(message, title)
+}
+
+function defaultShowIntro(message: string): void {
+  prompts.intro(message)
 }
 
 async function defaultChooseFinishAction(locale: LocaleCode): Promise<FinishAction['value']> {
@@ -208,16 +229,19 @@ function renderWorkspaceActionMessage(
 }
 
 export async function runCli(argv: string[], deps: CliDependencies = {}): Promise<CliResult> {
+  const locale = readLocaleArg(argv)
+
   if (argv.includes('--help')) {
-    const locale = readLocaleArg(argv)
     const messages = getCliMessages(locale)
     return {
       exitCode: 0,
-      output: `${messages.helpTitle}\n\n${messages.helpUsage}`
+      output: `${renderWelcomeSplash(locale)}\n\n${messages.helpUsage}\n${messages.helpHint}`
     }
   }
 
   const cwd = readCwd(argv)
+  const showIntro = deps.showIntro ?? defaultShowIntro
+  showIntro(renderWelcomeSplash(locale))
   const adapter = deps.createPromptAdapter
     ? await deps.createPromptAdapter()
     : await Promise.resolve(new ClackPromptAdapter())

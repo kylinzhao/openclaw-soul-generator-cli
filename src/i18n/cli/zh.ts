@@ -1,10 +1,12 @@
 import type { CliMessages } from '../types'
 
 export const zhCliMessages: CliMessages = {
-  languagePrompt: '先选一下 CLI 语言吧 🌍',
+  languagePrompt: '先选一下 CLI 语言\n让这只小龙虾先学会怎么跟你说话吧。🌍',
   helpTitle: 'OpenClaw Oh My Soul',
   helpUsage: '用法：openclaw-oh-my-soul [--cwd <路径>] [--locale <代码>]',
-  mergePrompt: (fileName) => `${fileName} 已存在，要怎么处理这只龙虾的旧设定？🦞`,
+  helpHint: '不带参数直接运行，就能开始这场龙虾小巡游。',
+  welcomeTagline: '钳子锋利，语气温柔。',
+  mergePrompt: (fileName) => `${fileName} 已存在。\n这只龙虾要怎么处理旧壳才体面？🦞`,
   mergeSmart: '智能合并（推荐）',
   mergeOverwrite: '覆盖',
   mergeKeep: '保留原文件',
@@ -13,28 +15,28 @@ export const zhCliMessages: CliMessages = {
   finishCelebrate: '龙虾灵魂出锅啦，钳子已经磨亮了。',
   finishOutputPathLabel: '输出目录：',
   finishFilesLabel: '生成文件：',
-  finishActionPrompt: '下一步想让这只龙虾怎么行动？',
+  finishActionPrompt: '选一下下一步动作\n这只龙虾已经扭着尾巴等指令了。🦞',
   finishActionKeep: '只保留在输出目录',
   finishActionApply: '应用到当前 OpenClaw workspace',
   finishActionRestore: '恢复最近一次 workspace 备份',
   workspacePathLabel: 'Workspace 路径：',
   workspaceFilesLabel: '将管理的文件：',
-  applyConfirmPrompt: (workspacePath) => `准备把当前 OpenClaw 文件替换到 ${workspacePath}，要继续吗？`,
-  restoreConfirmPrompt: (workspacePath) => `要把 ${workspacePath} 恢复到最近一次备份吗？`,
+  applyConfirmPrompt: (workspacePath) => `要把 persona pack 应用到 ${workspacePath} 吗？\n我们会一只钳子一只钳子地稳稳换壳。🦞`,
+  restoreConfirmPrompt: (workspacePath) => `要把 ${workspacePath} 恢复到最近一次备份吗？\n该让这只龙虾回到上一只安全的壳里了。🦞`,
   applySuccessBody: (workspacePath, backupPath) =>
     `已经把 persona pack 应用到 ${workspacePath}，备份保存在 ${backupPath}`,
   restoreSuccessBody: (workspacePath, backupPath) =>
     `已经从 ${backupPath} 恢复最新备份到 ${workspacePath}`,
   restoreMissingBody: (workspacePath) => `${workspacePath} 还没有可恢复的备份`,
   questions: {
-    'question.language': '先选一个这次对话要使用的语言吧 🌍',
-    'question.creation_mode': '这只龙虾要从哪种方式开始塑形？',
-    'question.use_case': '它主要要帮用户做什么？',
-    'question.capabilities': '你想让它哪几只“钳子”最强？',
-    'question.personality': '哪种人格光谱最贴近你的预期？',
-    'question.communication': '它和用户沟通时应该是什么风格？',
-    'question.working_style': '它默认该怎么推进工作？',
-    'question.risk_boundaries': '哪些边界和原则最重要？'
+    'question.language': '先选一个这次对话要使用的语言\n让这只小龙虾先开口不跑偏。🌍',
+    'question.creation_mode': '选一下这只龙虾从哪里开始塑形\n可以从零捏，也可以先借个壳。🦞',
+    'question.use_case': '选一下它主要帮用户做什么\n先把钳子对准最重要的活。🦞',
+    'question.capabilities': '选一下你想让它哪几只“钳子”最强\n龙虾可以很全能，但总得有几招特别亮。✨',
+    'question.personality': '选一下更贴近你预期的人格光谱\n我们来调调它的劲儿、温度和分寸。🦞',
+    'question.communication': '选一下它和用户说话的方式\n先讲清楚，再可爱，不许胡说。🫧',
+    'question.working_style': '选一下它默认怎么推进工作\n这是这只龙虾平时划水，不对，是划桨的节奏。🪸',
+    'question.risk_boundaries': '选一下最重要的边界和原则\n再轻松的龙虾，也得有靠谱护栏。🛟'
   },
   choices: {
     'choice.locale.en': '英文',

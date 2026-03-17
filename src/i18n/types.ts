@@ -4,6 +4,8 @@ export interface CliMessages {
   languagePrompt: string
   helpTitle: string
   helpUsage: string
+  helpHint: string
+  welcomeTagline: string
   mergePrompt: (fileName: string) => string
   mergeSmart: string
   mergeOverwrite: string

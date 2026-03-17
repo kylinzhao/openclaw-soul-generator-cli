@@ -1,10 +1,12 @@
 import type { CliMessages } from '../types'
 
 export const jaCliMessages: CliMessages = {
-  languagePrompt: 'CLI の言語を選んでください 🌍',
+  languagePrompt: 'CLI の言語を選んでください\nまずはこのロブスターが気持ちよく話せる言葉を決めましょう。🌍',
   helpTitle: 'OpenClaw Oh My Soul',
   helpUsage: '使い方: openclaw-oh-my-soul [--cwd <path>] [--locale <code>]',
-  mergePrompt: (fileName) => `${fileName} は既にあります。このロブスターはどうしますか？🦞`,
+  helpHint: 'オプションなしで起動すると、ロブスターの小さな行進が始まります。',
+  welcomeTagline: 'ハサミは鋭く、空気はやさしく。',
+  mergePrompt: (fileName) => `${fileName} は既にあります。\nこのロブスター、前の甲羅をどう扱いましょうか？🦞`,
   mergeSmart: 'スマートマージ（おすすめ）',
   mergeOverwrite: '上書き',
   mergeKeep: '既存ファイルを保持',
@@ -13,28 +15,30 @@ export const jaCliMessages: CliMessages = {
   finishCelebrate: 'ロブスターの魂が仕上がりました。ハサミも準備万端です。',
   finishOutputPathLabel: '出力ディレクトリ:',
   finishFilesLabel: '生成されたファイル:',
-  finishActionPrompt: 'このロブスター、次はどう動きますか?',
+  finishActionPrompt: '次の一手を選んでください\nこのロブスター、もう次のひと泳ぎをしたがっています。🦞',
   finishActionKeep: '出力先にそのまま保存する',
   finishActionApply: '現在の OpenClaw workspace に適用する',
   finishActionRestore: '最新の workspace バックアップを復元する',
   workspacePathLabel: 'Workspace パス:',
   workspaceFilesLabel: '管理対象ファイル:',
-  applyConfirmPrompt: (workspacePath) => `${workspacePath} の現在の OpenClaw ファイルを置き換えます。続けますか?`,
-  restoreConfirmPrompt: (workspacePath) => `${workspacePath} の最新バックアップを復元しますか?`,
+  applyConfirmPrompt: (workspacePath) =>
+    `${workspacePath} に persona pack を適用しますか?\n甲羅の交換は、ハサミ一本ずつ丁寧に進めます。🦞`,
+  restoreConfirmPrompt: (workspacePath) =>
+    `${workspacePath} の最新バックアップを復元しますか?\nこのロブスターを直前の安全な甲羅に戻しましょう。🦞`,
   applySuccessBody: (workspacePath, backupPath) =>
     `${workspacePath} に persona pack を適用しました。バックアップは ${backupPath} に保存しました`,
   restoreSuccessBody: (workspacePath, backupPath) =>
     `${backupPath} から ${workspacePath} へ最新バックアップを復元しました`,
   restoreMissingBody: (workspacePath) => `${workspacePath} には復元できるバックアップがありません`,
   questions: {
-    'question.language': 'まず CLI の言語を選びましょう 🌍',
-    'question.creation_mode': 'このロブスターをどう作り始めますか？',
-    'question.use_case': '主にどんな仕事を任せたいですか？',
-    'question.capabilities': 'どの能力を特に強くしたいですか？',
-    'question.personality': 'どの性格スペクトラムが近いですか？',
-    'question.communication': 'ユーザーへの話し方はどうしますか？',
-    'question.working_style': '普段の進め方はどうしますか？',
-    'question.risk_boundaries': 'どの境界や原則を重視しますか？'
+    'question.language': 'CLI の言語を選んでください\nまずはこの小さなロブスターが自然に話せる言葉を決めましょう。🌍',
+    'question.creation_mode': '作り始め方を選んでください\nゼロから育てても、甲羅を借りて始めても大丈夫です。🦞',
+    'question.use_case': '主な役割を選んでください\nどの仕事にハサミを向けるかを先に決めましょう。🦞',
+    'question.capabilities': '強くしたい能力を選んでください\nロブスターは器用ですが、特に光るハサミは欲しいところです。✨',
+    'question.personality': '性格の方向を選んでください\n勢い、あたたかさ、落ち着きをここで整えます。🦞',
+    'question.communication': '話し方を選んでください\nまず分かりやすく、そのあと少し愛嬌を。🫧',
+    'question.working_style': '普段の進め方を選んでください\n誰も拍子を取らないときのロブスターのリズムです。🪸',
+    'question.risk_boundaries': '大事にしたい境界を選んでください\n陽気なロブスターでも、しっかりした手すりは必要です。🛟'
   },
   choices: {
     'choice.locale.en': '英語',

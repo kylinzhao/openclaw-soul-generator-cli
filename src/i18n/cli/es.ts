@@ -1,10 +1,12 @@
 import type { CliMessages } from '../types'
 
 export const esCliMessages: CliMessages = {
-  languagePrompt: 'Elige el idioma del CLI 🌍',
+  languagePrompt: 'Elige el idioma del CLI\nPrimero pongamos a esta langosta a hablar contigo con gracia. 🌍',
   helpTitle: 'OpenClaw Oh My Soul',
   helpUsage: 'Uso: openclaw-oh-my-soul [--cwd <ruta>] [--locale <codigo>]',
-  mergePrompt: (fileName) => `${fileName} ya existe. ¿Qué debería hacer esta langosta? 🦞`,
+  helpHint: 'Ejecutalo sin flags y empieza el pequeno desfile de langosta.',
+  welcomeTagline: 'Pinzas afiladas, vibra amable.',
+  mergePrompt: (fileName) => `${fileName} ya existe.\n¿Cómo deberia esta langosta manejar su caparazon anterior? 🦞`,
   mergeSmart: 'Combinar inteligentemente (recomendado)',
   mergeOverwrite: 'Sobrescribir',
   mergeKeep: 'Conservar el archivo actual',
@@ -13,28 +15,30 @@ export const esCliMessages: CliMessages = {
   finishCelebrate: 'La langosta ya esta lista. Hora de presumir esas pinzas.',
   finishOutputPathLabel: 'Directorio de salida:',
   finishFilesLabel: 'Archivos generados:',
-  finishActionPrompt: 'Que deberia hacer esta langosta ahora?',
+  finishActionPrompt: 'Elige el siguiente paso\nEsta langosta ya esta moviendo las pinzas para seguir. 🦞',
   finishActionKeep: 'Conservar solo los archivos en la salida',
   finishActionApply: 'Aplicar al workspace actual de OpenClaw',
   finishActionRestore: 'Restaurar la copia de seguridad mas reciente',
   workspacePathLabel: 'Ruta del workspace:',
   workspaceFilesLabel: 'Archivos gestionados:',
-  applyConfirmPrompt: (workspacePath) => `Listo para reemplazar los archivos actuales de OpenClaw en ${workspacePath}. Continuar?`,
-  restoreConfirmPrompt: (workspacePath) => `Restaurar la copia de seguridad mas reciente para ${workspacePath}?`,
+  applyConfirmPrompt: (workspacePath) =>
+    `Aplicar el persona pack en ${workspacePath}?\nCambiaremos el caparazon con cuidado, pinza por pinza. 🦞`,
+  restoreConfirmPrompt: (workspacePath) =>
+    `Restaurar la copia de seguridad mas reciente para ${workspacePath}?\nHora de devolver a esta langosta a su ultimo caparazon seguro. 🦞`,
   applySuccessBody: (workspacePath, backupPath) =>
     `Se aplico el persona pack en ${workspacePath}. La copia de seguridad quedo en ${backupPath}`,
   restoreSuccessBody: (workspacePath, backupPath) =>
     `Se restauro la copia de seguridad mas reciente en ${workspacePath} desde ${backupPath}`,
   restoreMissingBody: (workspacePath) => `No se encontro ninguna copia de seguridad para ${workspacePath}`,
   questions: {
-    'question.language': 'Primero, elige el idioma del CLI 🌍',
-    'question.creation_mode': 'Como quieres empezar a moldear esta langosta?',
-    'question.use_case': 'Para que deberia ayudar principalmente?',
-    'question.capabilities': 'Que garras deberian ser las mas fuertes?',
-    'question.personality': 'Que espectro de personalidad encaja mejor?',
-    'question.communication': 'Como deberia comunicarse con el usuario?',
-    'question.working_style': 'Como deberia trabajar por defecto?',
-    'question.risk_boundaries': 'Que limites importan mas?'
+    'question.language': 'Elige el idioma del CLI\nPrimero hagamos que esta pequena langosta hable contigo con estilo. 🌍',
+    'question.creation_mode': 'Elige como quieres empezar a moldear esta langosta\nPodemos nacer desde cero o pedir prestado un caparazon. 🦞',
+    'question.use_case': 'Elige para que deberia ayudar principalmente\nApuntemos las pinzas hacia el trabajo que mas importa. 🦞',
+    'question.capabilities': 'Elige que garras deberian ser las mas fuertes\nUna langosta puede hacer mucho, pero algunas pinzas deben brillar. ✨',
+    'question.personality': 'Elige el espectro de personalidad\nVamos a ajustar el empuje, la calidez y el temple. 🦞',
+    'question.communication': 'Elige como deberia hablar con la persona usuaria\nPrimero claro, luego encantador, nunca confuso. 🫧',
+    'question.working_style': 'Elige como deberia trabajar por defecto\nEste sera el ritmo de la langosta cuando nadie marque el paso. 🪸',
+    'question.risk_boundaries': 'Elige que limites importan mas\nHasta la langosta mas simpatica necesita buenos rieles. 🛟'
   },
   choices: {
     'choice.locale.en': 'Ingles',

@@ -10,6 +10,9 @@ describe('CLI smoke test', () => {
 
     expect(result.exitCode).toBe(0)
     expect(result.output).toContain('OpenClaw Oh My Soul')
+    expect(result.output).toContain('🦞')
+    expect(result.output).toContain('\/|_')
+    expect(result.output).toContain('Sharp claws, gentle vibes')
     expect(result.output).toContain('openclaw-oh-my-soul')
     expect(result.output).toContain('Usage')
   })
@@ -23,6 +26,8 @@ describe('CLI smoke test', () => {
 
     expect(result.status).toBe(0)
     expect(result.stdout).toContain('OpenClaw Oh My Soul')
+    expect(result.stdout).toContain('🦞')
+    expect(result.stdout).toContain('Sharp claws, gentle vibes')
     expect(result.stdout).toContain('openclaw-oh-my-soul')
   })
 })
