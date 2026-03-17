@@ -2,13 +2,13 @@ import type { CliMessages } from '../types'
 
 export const esCliMessages: CliMessages = {
   languagePrompt: 'Elige el idioma del CLI 🌍',
-  helpTitle: 'OpenClaw Persona Pack Generator',
-  helpUsage: 'Uso: openclaw-persona [--cwd <ruta>]',
+  helpTitle: 'OpenClaw Oh My Soul',
+  helpUsage: 'Uso: openclaw-oh-my-soul [--cwd <ruta>] [--locale <codigo>]',
   mergePrompt: (fileName) => `${fileName} ya existe. ¿Qué debería hacer esta langosta? 🦞`,
   mergeSmart: 'Combinar inteligentemente (recomendado)',
   mergeOverwrite: 'Sobrescribir',
   mergeKeep: 'Conservar el archivo actual',
-  successNoteTitle: 'OpenClaw Persona Pack Generator',
+  successNoteTitle: 'OpenClaw Oh My Soul',
   successNoteBody: (cwd) => `Persona pack generado en ${cwd}`,
   finishCelebrate: 'La langosta ya esta lista. Hora de presumir esas pinzas.',
   finishOutputPathLabel: 'Directorio de salida:',

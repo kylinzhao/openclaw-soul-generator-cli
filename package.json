@@ -1,17 +1,25 @@
 {
-  "name": "openclaw-persona-pack-generator",
+  "name": "openclaw-oh-my-soul",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
   "bin": {
-    "openclaw-persona": "./bin/openclaw-persona"
+    "openclaw-oh-my-soul": "./bin/openclaw-oh-my-soul"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
   },
   "scripts": {
     "build": "tsup src/index.ts src/cli.ts --format esm --dts",
     "dev": "tsx src/cli.ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
     "@clack/prompts": "^0.10.1",

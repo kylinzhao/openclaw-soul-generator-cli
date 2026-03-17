@@ -2,13 +2,13 @@ import type { CliMessages } from '../types'
 
 export const enCliMessages: CliMessages = {
   languagePrompt: 'Choose your CLI language 🌍',
-  helpTitle: 'OpenClaw Persona Pack Generator',
-  helpUsage: 'Usage: openclaw-persona [--cwd <path>]',
+  helpTitle: 'OpenClaw Oh My Soul',
+  helpUsage: 'Usage: openclaw-oh-my-soul [--cwd <path>] [--locale <code>]',
   mergePrompt: (fileName) => `${fileName} already exists. What should this lobster do? 🦞`,
   mergeSmart: 'Smart merge (recommended)',
   mergeOverwrite: 'Overwrite',
   mergeKeep: 'Keep existing',
-  successNoteTitle: 'OpenClaw Persona Pack Generator',
+  successNoteTitle: 'OpenClaw Oh My Soul',
   successNoteBody: (cwd) => `Generated persona pack in ${cwd}`,
   finishCelebrate: 'Fresh claws, fresh soul. Your persona pack is ready.',
   finishOutputPathLabel: 'Output directory:',

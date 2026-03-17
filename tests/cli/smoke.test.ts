@@ -9,7 +9,8 @@ describe('CLI smoke test', () => {
     const result = await runCli(['--help'])
 
     expect(result.exitCode).toBe(0)
-    expect(result.output).toContain('OpenClaw Persona Pack Generator')
+    expect(result.output).toContain('OpenClaw Oh My Soul')
+    expect(result.output).toContain('openclaw-oh-my-soul')
     expect(result.output).toContain('Usage')
   })
 
@@ -21,6 +22,7 @@ describe('CLI smoke test', () => {
     })
 
     expect(result.status).toBe(0)
-    expect(result.stdout).toContain('OpenClaw Persona Pack Generator')
+    expect(result.stdout).toContain('OpenClaw Oh My Soul')
+    expect(result.stdout).toContain('openclaw-oh-my-soul')
   })
 })

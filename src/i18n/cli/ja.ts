@@ -2,13 +2,13 @@ import type { CliMessages } from '../types'
 
 export const jaCliMessages: CliMessages = {
   languagePrompt: 'CLI の言語を選んでください 🌍',
-  helpTitle: 'OpenClaw Persona Pack Generator',
-  helpUsage: '使い方: openclaw-persona [--cwd <path>]',
+  helpTitle: 'OpenClaw Oh My Soul',
+  helpUsage: '使い方: openclaw-oh-my-soul [--cwd <path>] [--locale <code>]',
   mergePrompt: (fileName) => `${fileName} は既にあります。このロブスターはどうしますか？🦞`,
   mergeSmart: 'スマートマージ（おすすめ）',
   mergeOverwrite: '上書き',
   mergeKeep: '既存ファイルを保持',
-  successNoteTitle: 'OpenClaw Persona Pack Generator',
+  successNoteTitle: 'OpenClaw Oh My Soul',
   successNoteBody: (cwd) => `${cwd} に persona pack を生成しました`,
   finishCelebrate: 'ロブスターの魂が仕上がりました。ハサミも準備万端です。',
   finishOutputPathLabel: '出力ディレクトリ:',

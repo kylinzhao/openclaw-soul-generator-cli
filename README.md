@@ -1,4 +1,4 @@
-# OpenClaw Persona Pack Generator
+# OpenClaw Oh My Soul
 
 Offline interactive CLI for generating OpenClaw persona packs.
 
@@ -28,28 +28,28 @@ The CLI can stay light and playful, with a little humor and a few emojis. The ge
 
 ## Usage
 
-Install dependencies:
-
-```bash
-npm install
-```
-
 Run the interactive wizard in the current directory:
 
 ```bash
-npm run dev
+npx openclaw-oh-my-soul
 ```
 
 Run it against a target workspace:
 
 ```bash
-npm run dev -- --cwd /path/to/workspace
+npx openclaw-oh-my-soul --cwd /path/to/workspace
+```
+
+Start with a specific CLI language:
+
+```bash
+npx openclaw-oh-my-soul --locale zh
 ```
 
 Show help:
 
 ```bash
-node dist/cli.js --help
+npx openclaw-oh-my-soul --help
 ```
 
 ## Behavior
@@ -65,6 +65,12 @@ node dist/cli.js --help
 - creates a timestamped backup before every workspace apply and can restore the latest backup
 
 ## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
 
 Run tests:
 
