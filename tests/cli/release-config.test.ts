@@ -22,15 +22,7 @@ describe('release config', () => {
     expect(packageJson.bin).toEqual({
       'openclaw-oh-my-soul': './bin/openclaw-oh-my-soul'
     })
-    expect(packageJson.files).toEqual([
-      'bin',
-      'dist',
-      'README.md',
-      'README.zh-CN.md',
-      'README.es.md',
-      'README.fr.md',
-      'README.ja.md'
-    ])
+    expect(packageJson.files).toEqual(['bin', 'dist', 'README.md'])
     expect(packageJson.engines?.node).toBe('>=18')
     expect(packageJson.scripts?.prepublishOnly).toBe('npm run lint && npm test && npm run build')
   })

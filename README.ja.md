@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/openclaw-oh-my-soul.svg)](https://www.npmjs.com/package/openclaw-oh-my-soul)
 [![GitHub](https://img.shields.io/badge/GitHub-openclaw--soul--generator--cli-black?logo=github)](https://github.com/kylinzhao/openclaw-soul-generator-cli)
 
-[English](./README.md) | [简体中文](./README.zh-CN.md) | [Español](./README.es.md) | [Français](./README.fr.md) | [日本語](./README.ja.md)
+[English](https://github.com/kylinzhao/openclaw-soul-generator-cli/blob/main/README.md) | [简体中文](https://github.com/kylinzhao/openclaw-soul-generator-cli/blob/main/README.zh-CN.md) | [Español](https://github.com/kylinzhao/openclaw-soul-generator-cli/blob/main/README.es.md) | [Français](https://github.com/kylinzhao/openclaw-soul-generator-cli/blob/main/README.fr.md) | [日本語](https://github.com/kylinzhao/openclaw-soul-generator-cli/blob/main/README.ja.md)
 
 OpenClaw の persona pack を、ちょっと陽気なロブスター気分で整えてくれるオフライン CLI です。
 
